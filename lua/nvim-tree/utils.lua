@@ -237,6 +237,15 @@ function M.file_exists(path)
   return error == nil
 end
 
+--- @param path string path to file or directory
+--- @return boolean
+function M.template_exists(template_dir, path)
+  local file_extension = path:match("^.+/(%..+)$")
+  local template_path = template_dir..file_extension..".template"
+  local _, error = vim.loop.fs_stat(template_path)
+  return error == nil
+end
+
 --- @param path string
 --- @return string
 function M.canonical_path(path)

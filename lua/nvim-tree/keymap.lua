@@ -99,6 +99,11 @@ local DEFAULT_KEYMAPS = {
     desc = "add a file; leaving a trailing `/` will add a directory",
   },
   {
+    key = "t",
+    callback = Api.fs.create_by_template,
+    desc = "add a file by template; when using trailing '/' it will only create a directory"
+  },
+  {
     key = "d",
     callback = Api.fs.remove,
     desc = "delete a file (will prompt for confirmation)",
