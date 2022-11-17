@@ -241,6 +241,9 @@ end
 --- @return boolean
 function M.template_exists(template_dir, path)
   local file_extension = path:match("^.+/(%..+)$")
+  if template_dir == nil then
+    template_dir = "~/.config/nvim/templates/"
+  end
   local template_path = template_dir..file_extension..".template"
   local _, error = vim.loop.fs_stat(template_path)
   return error == nil
